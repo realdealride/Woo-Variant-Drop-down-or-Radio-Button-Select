@@ -106,7 +106,7 @@ class Woo_Variant_Drop_Down_Or_Radio_Button_Select_Admin {
             <td>
                 <div class="enable_display_mode">
                     <label for="attribute_display_mode_<?php echo esc_attr( $i ); ?>">
-                        <?php esc_html_e( 'Display Mode', 'textdomain' ); ?>
+                        <?php esc_html_e( 'Display Mode', 'product-variant-dropdown-radio-button-for-woocommerce' ); ?>
                     </label>
                     <select id="attribute_display_mode_<?php echo esc_attr( $i ); ?>" name="attribute_display_mode[<?php echo esc_attr( $i ); ?>]">
                         <option value="">Choose Options</option>

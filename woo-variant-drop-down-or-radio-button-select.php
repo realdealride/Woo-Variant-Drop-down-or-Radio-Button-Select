@@ -8,20 +8,20 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://realdealride.com
+ * @link              http://sentiplug.com
  * @since             1.0.0
  * @package           Woo_Variant_Drop_Down_Or_Radio_Button_Select
  *
  * @wordpress-plugin
- * Plugin Name:       Woo Variant Drop-down or Radio Button Select
- * Plugin URI:        https://https://github.com/realdealride/Woo-Variant-Drop-down-or-Radio-Button-Select
+ * Plugin Name:       Product Variant Dropdown or Radio Button for WooCommerce
+ * Plugin URI:        http://sentiplug.com/Woo-Variant-Drop-down-or-Radio-Button-Select
  * Description:       Switch WooCommerce variation dropdowns to clean radio buttons or improved dropdowns for clearer, faster product option selection.
  * Version:           1.0.0
  * Author:            Rakeybul Hasan
- * Author URI:        https://realdealride.com/
+ * Author URI:        http://sentiplug.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       woo-variant-drop-down-or-radio-button-select
+ * Text Domain:       product-variant-dropdown-radio-button-for-woocommerce
  * Domain Path:       /languages
  */
 
@@ -41,7 +41,7 @@ define( 'WOO_VARIANT_DROP_DOWN_OR_RADIO_BUTTON_SELECT_VERSION', '1.0.0' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-woo-variant-drop-down-or-radio-button-select-activator.php
  */
-function activate_woo_variant_drop_down_or_radio_button_select() {
+function woo_variant_drop_down_or_radio_button_select_activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-woo-variant-drop-down-or-radio-button-select-activator.php';
 	Woo_Variant_Drop_Down_Or_Radio_Button_Select_Activator::activate();
 }
@@ -50,13 +50,13 @@ function activate_woo_variant_drop_down_or_radio_button_select() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-woo-variant-drop-down-or-radio-button-select-deactivator.php
  */
-function deactivate_woo_variant_drop_down_or_radio_button_select() {
+function woo_variant_drop_down_or_radio_button_select_deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-woo-variant-drop-down-or-radio-button-select-deactivator.php';
 	Woo_Variant_Drop_Down_Or_Radio_Button_Select_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_woo_variant_drop_down_or_radio_button_select' );
-register_deactivation_hook( __FILE__, 'deactivate_woo_variant_drop_down_or_radio_button_select' );
+register_activation_hook( __FILE__, 'woo_variant_drop_down_or_radio_button_select_activate' );
+register_deactivation_hook( __FILE__, 'woo_variant_drop_down_or_radio_button_select_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -85,10 +85,10 @@ if ( ! function_exists( 'woo_variant_print_attribute_radio' ) ) {
  *
  * @since    1.0.0
  */
-function run_woo_variant_drop_down_or_radio_button_select() {
+function woo_variant_drop_down_or_radio_button_select_run() {
 
 	$plugin = new Woo_Variant_Drop_Down_Or_Radio_Button_Select();
 	$plugin->run();
 
 }
-run_woo_variant_drop_down_or_radio_button_select();
+woo_variant_drop_down_or_radio_button_select_run();

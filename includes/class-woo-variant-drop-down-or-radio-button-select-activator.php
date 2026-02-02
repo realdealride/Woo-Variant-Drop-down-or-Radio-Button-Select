@@ -40,9 +40,9 @@ class Woo_Variant_Drop_Down_Or_Radio_Button_Select_Activator {
         ) {
             deactivate_plugins(plugin_basename(__FILE__));
             wp_die(
-                __('This plugin requires WooCommerce to be active.', 'my-plugin'),
-                __('Dependency error', 'my-plugin'),
-                ['back_link' => true]
+                esc_html( __( 'This plugin requires WooCommerce to be active.', 'product-variant-dropdown-radio-button-for-woocommerce' ) ),
+                esc_html( __( 'Dependency error', 'product-variant-dropdown-radio-button-for-woocommerce' ) ),
+                [ 'back_link' => true ]
             );
         }
 	}

@@ -34,11 +34,6 @@ class Woo_Variant_Drop_Down_Or_Radio_Button_Select_i18n {
 	 */
 	public function load_plugin_textdomain() {
 
-		load_plugin_textdomain(
-			'woo-variant-drop-down-or-radio-button-select',
-			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
-		);
 
 	}
 
