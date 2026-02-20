@@ -132,38 +132,34 @@ class Product_Variant_Dropdown_Radio_Button_Admin {
     }
     public function sentiplug_variant_ajax_woocommerce_save_attributes() {
 
-        // 1️⃣ Verify nonce (AJAX security)
         check_ajax_referer( 'save-attributes', 'security' );
 
-        // 2️⃣ Retrieve, unslash, and sanitize POSTed query string
-        $raw_data = isset( $_POST['data'] ) ? sanitize_text_field( wp_unslash($_POST['data']) ) : '';
-        // Sanitize raw query string to satisfy PHPCS and prevent malicious payloads
+        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $raw_data = isset( $_POST['data'] ) ? wp_unslash( $_POST['data'] ) : '';
 
-        $data = [];
-        parse_str( $raw_data, $data );
+        $data = array();
+        if ( '' !== $raw_data ) {
+            // Parse query-string-style payload into an array
+            parse_str( $raw_data, $data );
 
-        // 3️⃣ Sanitize post_id
+            // Sanitize all parsed values
+            $data = map_deep( $data, 'sanitize_text_field' );
+        }
+
+        // Validate post_id
         $post_id = isset( $_POST['post_id'] ) ? absint( wp_unslash( $_POST['post_id'] ) ) : 0;
         if ( ! $post_id ) {
             wp_send_json_error( 'Invalid post ID.' );
         }
 
-        // 4️⃣ Ensure attribute_display_mode exists and is an array
         if ( ! empty( $data['attribute_display_mode'] ) && is_array( $data['attribute_display_mode'] ) ) {
-
-            // 5️⃣ Sanitize all parsed data
-            $data = map_deep( $data, 'sanitize_text_field' );
-
             foreach ( $data['attribute_display_mode'] as $i => $val ) {
-
-                // Sanitize attribute name safely
                 if ( ! isset( $data['attribute_names'][$i] ) ) {
                     continue;
                 }
 
                 $attr_name = sanitize_title( strtolower( $data['attribute_names'][$i] ) );
 
-                // Save sanitized value to post meta
                 update_post_meta( $post_id, 'attribute_' . $attr_name . '_display_mode', $val );
             }
         }
