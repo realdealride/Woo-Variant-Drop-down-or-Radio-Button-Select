@@ -34,71 +34,109 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
             <table class="variations" cellspacing="0" role="presentation">
                 <tbody>
                 <?php foreach ( $attributes as $product_variant_attribute_name => $product_variant_options ) :
-                    $product_variant_attribute_name_formatted = strtolower( sanitize_title( $product_variant_attribute_name ) );
 
-                    $product_variant_val = get_post_meta( $product->get_id(), 'attribute_' . $product_variant_attribute_name_formatted . '_display_mode', true );
+                    $product_variant_sanitized_name = strtolower( sanitize_title( $product_variant_attribute_name ) );
+
+                    $product_variant_display_mode   = get_post_meta(
+                            $product->get_id(),
+                            'attribute_' . $product_variant_sanitized_name . '_display_mode',
+                            true
+                    );
+
+                    $product_variant_checked_value = '';
+                    $product_variant_request_key   = 'attribute_' . $product_variant_sanitized_name;
+
+                    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                    if ( isset( $_GET[ $product_variant_request_key ] ) ) {
+                        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                        $product_variant_checked_value = sanitize_text_field( wp_unslash( $_GET[ $product_variant_request_key ] ));
+                    } elseif ( isset( $selected_attributes[ $product_variant_sanitized_name ] ) ) {
+                        $product_variant_checked_value = sanitize_text_field(
+                                $selected_attributes[ $product_variant_sanitized_name ]
+                        );
+                    }
                     ?>
-
                     <tr>
-                        <th style="color: #000; width: 20%!important; vertical-align: top" class="label"><label for="<?php echo esc_attr( sanitize_title( $product_variant_attribute_name ) ); ?>"><?php echo esc_html( wc_attribute_label( $product_variant_attribute_name ) ); // WPCS: XSS ok. ?></label></th>
-                        <td style="width: 80%; padding-top: 5px; padding-bottom: 5px" class="value">
-                            <?php
-                            if ($product_variant_val=='radio_button'){
-                                $product_variant_sanitized_name = sanitize_title( $product_variant_attribute_name );
-                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-                                if ( isset( $_REQUEST[ 'attribute_' . $product_variant_sanitized_name ] ) ) {
-                                    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-                                    $product_variant_checked_value = sanitize_text_field(
-                                    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-                                            wp_unslash( $_REQUEST[ 'attribute_' . $product_variant_sanitized_name ] )
-                                    );
-                                } elseif ( isset( $selected_attributes[ $product_variant_sanitized_name ] ) ) {
-                                    $product_variant_checked_value = sanitize_text_field( $selected_attributes[ $product_variant_sanitized_name ] );
-                                } else {
-                                    $product_variant_checked_value = '';
-                                }
+                        <th class="label" style="width:20%; vertical-align:top">
+                            <label for="<?php echo esc_attr( $product_variant_sanitized_name ); ?>">
+                                <?php echo esc_html( wc_attribute_label( $product_variant_attribute_name ) ); ?>
+                            </label>
+                        </th>
+
+                        <td class="value" style="width:80%; padding:5px 0">
+
+                            <?php if ( 'radio_button' === $product_variant_display_mode ) : ?>
+
+                                <?php
                                 if ( ! empty( $product_variant_options ) ) {
+
                                     if ( taxonomy_exists( $product_variant_attribute_name ) ) {
-                                        // Get terms if this is a taxonomy - ordered. We need the names too.
-                                        $product_variant_terms = wc_get_product_terms( $product->get_id(), $product_variant_attribute_name, array( 'fields' => 'all' ) );
+
+                                        $product_variant_terms = wc_get_product_terms(
+                                                $product->get_id(),
+                                                $product_variant_attribute_name,
+                                                array( 'fields' => 'all' )
+                                        );
 
                                         foreach ( $product_variant_terms as $term ) {
-                                            if ( ! in_array( $term->slug, $product_variant_options ) ) {
+                                            if ( ! in_array( $term->slug, $product_variant_options, true ) ) {
                                                 continue;
                                             }
-                                            product_variant_print_attribute_radio( $product_variant_checked_value, $term->slug, $term->name, $product_variant_sanitized_name );
+
+                                            product_variant_print_attribute_radio(
+                                                    $product_variant_checked_value,
+                                                    $term->slug,
+                                                    $term->name,
+                                                    $product_variant_sanitized_name
+                                            );
                                         }
+
                                     } else {
+
                                         foreach ( $product_variant_options as $product_variant_option ) {
-                                            product_variant_print_attribute_radio( $product_variant_checked_value, $product_variant_option, $product_variant_option, $product_variant_sanitized_name );
+
+                                            product_variant_print_attribute_radio(
+                                                    $product_variant_checked_value,
+                                                    $product_variant_option,
+                                                    $product_variant_option,
+                                                    $product_variant_sanitized_name
+                                            );
                                         }
                                     }
                                 }
-                            }elseif ($product_variant_val=='select_dropdown'){
-                                wc_dropdown_variation_attribute_options(
-                                        array(
-                                                'options'   => $product_variant_options,
-                                                'attribute' => $product_variant_attribute_name,
-                                                'product'   => $product,
-                                                'class'=> 'input-select'
-                                        )
-                                );
-                            }else{
-                                wc_dropdown_variation_attribute_options(
-                                        array(
-                                                'options'   => $product_variant_options,
-                                                'attribute' => $product_variant_attribute_name,
-                                                'product'   => $product,
-                                                'class'=> 'input-select'
-                                        )
-                                );
-                            }
-                            echo end( $product_variant_attribute_keys ) === $product_variant_attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'product-variant-dropdown-radio-button' ) . '</a>' ) ) : '';
+                                ?>
 
+                            <?php else : ?>
+
+                                <?php
+                                wc_dropdown_variation_attribute_options(
+                                        array(
+                                                'options'   => $product_variant_options,
+                                                'attribute' => $product_variant_attribute_name,
+                                                'product'   => $product,
+                                                'class'     => 'input-select',
+                                        )
+                                );
+                                ?>
+
+                            <?php endif; ?>
+
+                            <?php
+                            echo end( $product_variant_attribute_keys ) === $product_variant_attribute_name
+                                    ? wp_kses_post(
+                                            apply_filters(
+                                                    'woocommerce_reset_variations_link',
+                                                    '<a class="reset_variations" href="#">' .
+                                                    esc_html__( 'Clear', 'product-variant-dropdown-radio-button' ) .
+                                                    '</a>'
+                                            )
+                                    )
+                                    : '';
                             ?>
-                        </td>
 
+                        </td>
                     </tr>
+
                 <?php endforeach; ?>
                 </tbody>
             </table>

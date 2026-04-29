@@ -124,7 +124,7 @@ class Product_Variant_Dropdown_Radio_Button_Admin {
 
         // ID for either from ajax or from post
         // phpcs:ignore WordPress.Security.NonceVerification.Missing
-        $post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : $post->ID ;
+        $post_id = $post->ID ;
         $attribute_name = strtolower( sanitize_title( $attribute_name ) );
         $val = get_post_meta( $post_id, 'attribute_' . $attribute_name . '_display_mode', true );
 
