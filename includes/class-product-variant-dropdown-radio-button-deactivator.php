@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Fired during plugin deactivation
  *
- * @link       https://http://sentiplug.com
+ * @link       https://sentiplug.com
  * @since      1.0.0
  *
  * @package    Sentiplug_Pvdrb

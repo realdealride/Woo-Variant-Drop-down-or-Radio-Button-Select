@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://http://sentiplug.com
+ * @link       https://sentiplug.com
  * @since      1.0.0
  *
  * @package    Sentiplug_Pvdrb
