@@ -109,9 +109,9 @@ class Sentiplug_Pvdrb_Admin {
                         <?php esc_html_e( 'Display Mode', 'product-variant-dropdown-radio-button' ); ?>
                     </label>
                     <select id="attribute_display_mode_<?php echo esc_attr( $i ); ?>" name="attribute_display_mode[<?php echo esc_attr( $i ); ?>]">
-                        <option value="">Choose Options</option>
-                        <option value="select_dropdown" <?php echo $value == "select_dropdown"?'selected="selected"':""?>>Drop Down</option>
-                        <option value="radio_button" <?php echo $value == "radio_button"?'selected="selected"':""?>>Radio Button</option>
+                        <option value=""><?php esc_html_e( 'Choose Options', 'product-variant-dropdown-radio-button' ); ?></option>
+                        <option value="select_dropdown" <?php selected( $value, 'select_dropdown' ); ?>><?php esc_html_e( 'Drop Down', 'product-variant-dropdown-radio-button' ); ?></option>
+                        <option value="radio_button" <?php selected( $value, 'radio_button' ); ?>><?php esc_html_e( 'Radio Button', 'product-variant-dropdown-radio-button' ); ?></option>
                     </select>
                 </div>
             </td>
