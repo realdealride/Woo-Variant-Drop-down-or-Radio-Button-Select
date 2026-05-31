@@ -1,0 +1,31 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node (if added later)
+node_modules/
+package-lock.json
+
+# Composer (if added later)
+vendor/
+composer.lock
+
+# Logs
+*.log
+debug.log
+
+# Environment
+.env
+
+# Markdown
+CLAUDE.md
+
+# Build artifacts
+*.zip

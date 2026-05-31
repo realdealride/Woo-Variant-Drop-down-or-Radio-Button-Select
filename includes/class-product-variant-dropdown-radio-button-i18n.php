@@ -9,8 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @link       https://http://sentiplug.com
  * @since      1.0.0
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  */
 
 /**
@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  * @author     Sentiplug <admin@sentiplug.com>
  */
-class Product_Variant_Dropdown_Radio_Button_i18n {
+class Sentiplug_Pvdrb_I18n {
 
 
 	/**

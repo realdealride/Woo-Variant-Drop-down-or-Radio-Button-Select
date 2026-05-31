@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @link       https://http://sentiplug.com
  * @since      1.0.0
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  */
 
 /**
@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  * @author     Sentiplug <admin@sentiplug.com>
  */
-class Product_Variant_Dropdown_Radio_Button_Activator {
+class Sentiplug_Pvdrb_Activator {
 
 	/**
 	 * Short Description. (use period)

@@ -6,8 +6,8 @@
  * @link       https://http://sentiplug.com
  * @since      1.0.0
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/public
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/public
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/public
  * @author     Sentiplug <admin@sentiplug.com>
  */
-class Product_Variant_Dropdown_Radio_Button_Public {
+class Sentiplug_Pvdrb_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -65,10 +65,10 @@ class Product_Variant_Dropdown_Radio_Button_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Product_Variant_Dropdown_Radio_Button_Loader as all of the hooks are defined
+		 * defined in Sentiplug_Pvdrb_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Product_Variant_Dropdown_Radio_Button_Loader will then create the relationship
+		 * The Sentiplug_Pvdrb_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class Product_Variant_Dropdown_Radio_Button_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Product_Variant_Dropdown_Radio_Button_Loader as all of the hooks are defined
+		 * defined in Sentiplug_Pvdrb_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Product_Variant_Dropdown_Radio_Button_Loader will then create the relationship
+		 * The Sentiplug_Pvdrb_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */

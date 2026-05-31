@@ -9,8 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @link       https://http://sentiplug.com
  * @since      1.0.0
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  */
 
 /**
@@ -23,11 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  * @author     Sentiplug <admin@sentiplug.com>
  */
-class Product_Variant_Dropdown_Radio_Button {
+class Sentiplug_Pvdrb {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Product_Variant_Dropdown_Radio_Button {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Product_Variant_Dropdown_Radio_Button_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Sentiplug_Pvdrb_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,8 +67,8 @@ class Product_Variant_Dropdown_Radio_Button {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PRODUCT_VARIANT_DROPDOWN_RADIO_BUTTON_VERSION' ) ) {
-			$this->version = PRODUCT_VARIANT_DROPDOWN_RADIO_BUTTON_VERSION;
+		if ( defined( 'SENTIPLUG_PVDRB_VERSION' ) ) {
+			$this->version = SENTIPLUG_PVDRB_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -86,10 +86,10 @@ class Product_Variant_Dropdown_Radio_Button {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Product_Variant_Dropdown_Radio_Button_Loader. Orchestrates the hooks of the plugin.
-	 * - Product_Variant_Dropdown_Radio_Button_i18n. Defines internationalization functionality.
-	 * - Product_Variant_Dropdown_Radio_Button_Admin. Defines all hooks for the admin area.
-	 * - Product_Variant_Dropdown_Radio_Button_Public. Defines all hooks for the public side of the site.
+	 * - Sentiplug_Pvdrb_Loader. Orchestrates the hooks of the plugin.
+	 * - Sentiplug_Pvdrb_I18n. Defines internationalization functionality.
+	 * - Sentiplug_Pvdrb_Admin. Defines all hooks for the admin area.
+	 * - Sentiplug_Pvdrb_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -122,14 +122,14 @@ class Product_Variant_Dropdown_Radio_Button {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-product-variant-dropdown-radio-button-public.php';
 
-		$this->loader = new Product_Variant_Dropdown_Radio_Button_Loader();
+		$this->loader = new Sentiplug_Pvdrb_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Product_Variant_Dropdown_Radio_Button_i18n class in order to set the domain and to register the hook
+	 * Uses the Sentiplug_Pvdrb_I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -137,7 +137,7 @@ class Product_Variant_Dropdown_Radio_Button {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Product_Variant_Dropdown_Radio_Button_i18n();
+		$plugin_i18n = new Sentiplug_Pvdrb_I18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -152,7 +152,7 @@ class Product_Variant_Dropdown_Radio_Button {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Product_Variant_Dropdown_Radio_Button_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Sentiplug_Pvdrb_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -171,7 +171,7 @@ class Product_Variant_Dropdown_Radio_Button {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Product_Variant_Dropdown_Radio_Button_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Sentiplug_Pvdrb_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -204,7 +204,7 @@ class Product_Variant_Dropdown_Radio_Button {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Product_Variant_Dropdown_Radio_Button_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Sentiplug_Pvdrb_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

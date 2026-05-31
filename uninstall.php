@@ -22,7 +22,7 @@
  * @link       https://http://sentiplug.com
  * @since      1.0.0
  *
- * @package    Product_Variant_Dropdown_Radio_Button
+ * @package    Sentiplug_Pvdrb
  */
 
 // If uninstall not called from WordPress, then exit.

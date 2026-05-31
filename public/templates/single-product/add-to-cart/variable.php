@@ -46,10 +46,15 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                     $product_variant_checked_value = '';
                     $product_variant_request_key   = 'attribute_' . $product_variant_sanitized_name;
 
+                    // Read-only use of $_GET to pre-select a variation from a shareable URL
+                    // (mirrors WooCommerce core behaviour). No state is changed here, the value
+                    // is sanitized below and only used to set the "checked" attribute on the
+                    // matching radio/option, which is itself escaped on output. A nonce would
+                    // defeat the purpose because public/inbound links would never carry one.
                     // phpcs:ignore WordPress.Security.NonceVerification.Recommended
                     if ( isset( $_GET[ $product_variant_request_key ] ) ) {
                         // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-                        $product_variant_checked_value = sanitize_text_field( wp_unslash( $_GET[ $product_variant_request_key ] ));
+                        $product_variant_checked_value = sanitize_text_field( wp_unslash( $_GET[ $product_variant_request_key ] ) );
                     } elseif ( isset( $selected_attributes[ $product_variant_sanitized_name ] ) ) {
                         $product_variant_checked_value = sanitize_text_field(
                                 $selected_attributes[ $product_variant_sanitized_name ]
@@ -83,7 +88,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                                 continue;
                                             }
 
-                                            product_variant_print_attribute_radio(
+                                            sentiplug_pvdrb_print_attribute_radio(
                                                     $product_variant_checked_value,
                                                     $term->slug,
                                                     $term->name,
@@ -95,7 +100,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
                                         foreach ( $product_variant_options as $product_variant_option ) {
 
-                                            product_variant_print_attribute_radio(
+                                            sentiplug_pvdrb_print_attribute_radio(
                                                     $product_variant_checked_value,
                                                     $product_variant_option,
                                                     $product_variant_option,

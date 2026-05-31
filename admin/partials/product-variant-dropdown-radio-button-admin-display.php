@@ -8,8 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @link       https://http://sentiplug.com
  * @since      1.0.0
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/admin/partials
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/admin/partials
  */
 ?>
 

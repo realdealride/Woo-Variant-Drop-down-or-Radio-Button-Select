@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @link       https://http://sentiplug.com
  * @since      1.0.0
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  */
 
 /**
@@ -17,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Product_Variant_Dropdown_Radio_Button
- * @subpackage Product_Variant_Dropdown_Radio_Button/includes
+ * @package    Sentiplug_Pvdrb
+ * @subpackage Sentiplug_Pvdrb/includes
  * @author     Sentiplug <admin@sentiplug.com>
  */
-class Product_Variant_Dropdown_Radio_Button_Loader {
+class Sentiplug_Pvdrb_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
