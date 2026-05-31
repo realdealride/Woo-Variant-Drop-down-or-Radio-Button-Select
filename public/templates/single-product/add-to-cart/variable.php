@@ -19,13 +19,13 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
-$product_variant_attribute_keys  = array_keys( $attributes );
-$product_variant_variations_json = wp_json_encode( $available_variations );
-$product_variant_variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $product_variant_variations_json ) : _wp_specialchars( $product_variant_variations_json, ENT_QUOTES, 'UTF-8', true );
+$sentiplug_pvdrb_attribute_keys  = array_keys( $attributes );
+$sentiplug_pvdrb_variations_json = wp_json_encode( $available_variations );
+$sentiplug_pvdrb_variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $sentiplug_pvdrb_variations_json ) : _wp_specialchars( $sentiplug_pvdrb_variations_json, ENT_QUOTES, 'UTF-8', true );
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-    <form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo esc_attr($product_variant_variations_attr) ; // WPCS: XSS ok. ?>">
+    <form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo esc_attr($sentiplug_pvdrb_variations_attr) ; // WPCS: XSS ok. ?>">
         <?php do_action( 'woocommerce_before_variations_form' ); ?>
 
         <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
@@ -33,18 +33,18 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
         <?php else : ?>
             <table class="variations" cellspacing="0" role="presentation">
                 <tbody>
-                <?php foreach ( $attributes as $product_variant_attribute_name => $product_variant_options ) :
+                <?php foreach ( $attributes as $sentiplug_pvdrb_attribute_name => $sentiplug_pvdrb_options ) :
 
-                    $product_variant_sanitized_name = strtolower( sanitize_title( $product_variant_attribute_name ) );
+                    $sentiplug_pvdrb_sanitized_name = strtolower( sanitize_title( $sentiplug_pvdrb_attribute_name ) );
 
-                    $product_variant_display_mode   = get_post_meta(
+                    $sentiplug_pvdrb_display_mode   = get_post_meta(
                             $product->get_id(),
-                            'attribute_' . $product_variant_sanitized_name . '_display_mode',
+                            'attribute_' . $sentiplug_pvdrb_sanitized_name . '_display_mode',
                             true
                     );
 
-                    $product_variant_checked_value = '';
-                    $product_variant_request_key   = 'attribute_' . $product_variant_sanitized_name;
+                    $sentiplug_pvdrb_checked_value = '';
+                    $sentiplug_pvdrb_request_key   = 'attribute_' . $sentiplug_pvdrb_sanitized_name;
 
                     // Read-only use of $_GET to pre-select a variation from a shareable URL
                     // (mirrors WooCommerce core behaviour). No state is changed here, the value
@@ -52,59 +52,59 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                     // matching radio/option, which is itself escaped on output. A nonce would
                     // defeat the purpose because public/inbound links would never carry one.
                     // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-                    if ( isset( $_GET[ $product_variant_request_key ] ) ) {
+                    if ( isset( $_GET[ $sentiplug_pvdrb_request_key ] ) ) {
                         // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-                        $product_variant_checked_value = sanitize_text_field( wp_unslash( $_GET[ $product_variant_request_key ] ) );
-                    } elseif ( isset( $selected_attributes[ $product_variant_sanitized_name ] ) ) {
-                        $product_variant_checked_value = sanitize_text_field(
-                                $selected_attributes[ $product_variant_sanitized_name ]
+                        $sentiplug_pvdrb_checked_value = sanitize_text_field( wp_unslash( $_GET[ $sentiplug_pvdrb_request_key ] ) );
+                    } elseif ( isset( $selected_attributes[ $sentiplug_pvdrb_sanitized_name ] ) ) {
+                        $sentiplug_pvdrb_checked_value = sanitize_text_field(
+                                $selected_attributes[ $sentiplug_pvdrb_sanitized_name ]
                         );
                     }
                     ?>
                     <tr>
                         <th class="label" style="width:20%; vertical-align:top">
-                            <label for="<?php echo esc_attr( $product_variant_sanitized_name ); ?>">
-                                <?php echo esc_html( wc_attribute_label( $product_variant_attribute_name ) ); ?>
+                            <label for="<?php echo esc_attr( $sentiplug_pvdrb_sanitized_name ); ?>">
+                                <?php echo esc_html( wc_attribute_label( $sentiplug_pvdrb_attribute_name ) ); ?>
                             </label>
                         </th>
 
                         <td class="value" style="width:80%; padding:5px 0">
 
-                            <?php if ( 'radio_button' === $product_variant_display_mode ) : ?>
+                            <?php if ( 'radio_button' === $sentiplug_pvdrb_display_mode ) : ?>
 
                                 <?php
-                                if ( ! empty( $product_variant_options ) ) {
+                                if ( ! empty( $sentiplug_pvdrb_options ) ) {
 
-                                    if ( taxonomy_exists( $product_variant_attribute_name ) ) {
+                                    if ( taxonomy_exists( $sentiplug_pvdrb_attribute_name ) ) {
 
-                                        $product_variant_terms = wc_get_product_terms(
+                                        $sentiplug_pvdrb_terms = wc_get_product_terms(
                                                 $product->get_id(),
-                                                $product_variant_attribute_name,
+                                                $sentiplug_pvdrb_attribute_name,
                                                 array( 'fields' => 'all' )
                                         );
 
-                                        foreach ( $product_variant_terms as $term ) {
-                                            if ( ! in_array( $term->slug, $product_variant_options, true ) ) {
+                                        foreach ( $sentiplug_pvdrb_terms as $term ) {
+                                            if ( ! in_array( $term->slug, $sentiplug_pvdrb_options, true ) ) {
                                                 continue;
                                             }
 
                                             sentiplug_pvdrb_print_attribute_radio(
-                                                    $product_variant_checked_value,
+                                                    $sentiplug_pvdrb_checked_value,
                                                     $term->slug,
                                                     $term->name,
-                                                    $product_variant_sanitized_name
+                                                    $sentiplug_pvdrb_sanitized_name
                                             );
                                         }
 
                                     } else {
 
-                                        foreach ( $product_variant_options as $product_variant_option ) {
+                                        foreach ( $sentiplug_pvdrb_options as $sentiplug_pvdrb_option ) {
 
                                             sentiplug_pvdrb_print_attribute_radio(
-                                                    $product_variant_checked_value,
-                                                    $product_variant_option,
-                                                    $product_variant_option,
-                                                    $product_variant_sanitized_name
+                                                    $sentiplug_pvdrb_checked_value,
+                                                    $sentiplug_pvdrb_option,
+                                                    $sentiplug_pvdrb_option,
+                                                    $sentiplug_pvdrb_sanitized_name
                                             );
                                         }
                                     }
@@ -116,8 +116,8 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                 <?php
                                 wc_dropdown_variation_attribute_options(
                                         array(
-                                                'options'   => $product_variant_options,
-                                                'attribute' => $product_variant_attribute_name,
+                                                'options'   => $sentiplug_pvdrb_options,
+                                                'attribute' => $sentiplug_pvdrb_attribute_name,
                                                 'product'   => $product,
                                                 'class'     => 'input-select',
                                         )
@@ -127,7 +127,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                             <?php endif; ?>
 
                             <?php
-                            echo end( $product_variant_attribute_keys ) === $product_variant_attribute_name
+                            echo end( $sentiplug_pvdrb_attribute_keys ) === $sentiplug_pvdrb_attribute_name
                                     ? wp_kses_post(
                                             apply_filters(
                                                     'woocommerce_reset_variations_link',
