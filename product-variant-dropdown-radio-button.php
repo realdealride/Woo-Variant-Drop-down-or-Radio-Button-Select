@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Product Variant Dropdown or Radio Button for WooCommerce
- * Plugin URI:        https://sentiplug.com/product-variant-dropdown-radio-button
+ * Plugin URI:        https://github.com/realdealride/Woo-Variant-Drop-down-or-Radio-Button-Select
  * Description:       Switch WooCommerce variation dropdowns to clean radio buttons or improved dropdowns for clearer, faster product option selection.
  * Version:           1.0.0
  * Author:            Sentiplug
