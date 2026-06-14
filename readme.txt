@@ -2,7 +2,7 @@
 Contributors: sentiplug2026, zamanetl, rakeybul84
 Tags: woocommerce, variations, product variations, radio buttons, dropdown
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
