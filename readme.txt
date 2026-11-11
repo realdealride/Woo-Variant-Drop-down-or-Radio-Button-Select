@@ -1,113 +1,92 @@
 === Product Variant Dropdown or Radio Button for WooCommerce ===
 Contributors: sentiplug2026, zamanetl, rakeybul84
-Tags: woocommerce, variations, product variations, radio buttons, dropdown
+Tags: woocommerce, variation swatches, radio buttons, product options, variations
 Requires at least: 6.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Switch WooCommerce variation dropdowns to clean radio buttons or improved dropdowns for clearer, faster product option selection.
+Boost WooCommerce conversions by replacing clunky variation dropdowns with one-click radio buttons or clean, labeled product option dropdowns.
 
 == Description ==
 
-**Product Variant Dropdown or Radio Button for WooCommerce** gives you control over how WooCommerce variation attributes are displayed on product pages.
+**Stop losing sales to hidden product options.** By default, WooCommerce hides your variable product choices inside dropdown menus—forcing shoppers to click twice just to see available sizes or styles.
 
-By default, WooCommerce shows variable product options (like size or color) as dropdowns. This plugin lets you decide, per attribute or per product, whether those options should appear as:
+**Product Variant Dropdown or Radio Button for WooCommerce** gives you complete control over how product variation swatches and attributes appear on your store, without writing custom code or bloating your site with heavy scripts.
 
-* A standard (but cleaned-up) drop-down.
-* A clear, one-click **radio button** group.
+Choose the exact interface that converts best for each attribute or individual product:
 
-Use it when you want customers to see all choices at once (radio) or keep things compact (drop-down), without writing custom code or editing templates.
+* **One-Click Radio Buttons:** Display all choices upfront so shoppers can pick their option in a single click.
+* **Enhanced Dropdowns:** Keep long lists compact while replacing vague "Choose an option" text with clear, helpful labels.
+* **Mixed Option Layouts:** Combine radio buttons for sizes and dropdowns for colors on the exact same product page.
 
-### What this plugin does
+### Why Store Owners & Developers Choose This Plugin
 
-* Replace variation dropdowns with radio buttons for easier selection.
-* Keep dropdowns, but make them clearer and more consistent.
-* Mix dropdowns and radio buttons on the same product when it makes sense.
-* Keep using WooCommerce's built-in variation logic for price, stock, and images.
+* **Zero Bloat & Lightweight:** Built strictly on native WooCommerce hooks—no heavy JavaScript libraries, custom database tables, or slow page loads.
+* **Per-Attribute Display Control:** Set a global display rule for each attribute (e.g., show **Size** as radio buttons and **Color** as a dropdown).
+* **Per-Product Overrides:** Customize the layout on individual product pages whenever a specific item needs a different user experience.
+* **Smarter Dropdown Placeholders:** Improve dropdown clarity with custom first-option prompts like *"Choose a size"* instead of generic defaults.
+* **100% WooCommerce Native:** Works seamlessly with standard WooCommerce attributes, variation pricing, stock management, and dynamic product gallery images.
+* **Theme & Builder Friendly:** Uses clean, standard WooCommerce markup that inherits your theme styles and works with Elementor, Divi, Bricks, and Block themes.
 
-### Key features
+### How It Works in 3 Simple Steps
 
-* **Per-attribute display control**
-  Choose whether an attribute like Size or Color should render as a drop-down or as a radio button group.
+1. **Create Your Attributes:** Set up standard attributes in **Products → Attributes** (such as Size, Color, or Material).
+2. **Choose Your Display Style:** Select **Radio Buttons** or **Drop-down** globally per attribute, or override it inside any individual product's edit screen.
+3. **Publish & Convert:** Your product pages instantly display cleaner, faster product options while WooCommerce continues handling stock, pricing, and variation images automatically.
 
-* **Per-product overrides**
-  Override the default behavior on individual products if they need a different UI.
+### Best Use Cases
 
-* **Improved dropdown UX**
-  Optionally refine labels / placeholders so dropdowns are easier to understand (e.g. "Choose a size" instead of a blank first option).
-
-* **Clear radio button groups**
-  Show all options at once with radio buttons, so customers can pick the right variant with a single click.
-
-* **WooCommerce-native**
-  Works with standard WooCommerce attributes, terms, and variable products. No custom product types or data structures.
-
-* **Theme-friendly and extensible**
-  Uses established WooCommerce hooks and markup patterns, making it easier to style and extend in your theme or child theme.
-
-### How it works
-
-1. Set up attributes in **Products → Attributes** (for example: Size, Color).
-2. In the product edit screen, pick a display type for each attribute:
-   * **Drop-down**
-   * **Radio buttons**
-3. Optionally, override the display type on specific products in the product edit screen.
-4. On the front end, the plugin replaces (or enhances) WooCommerce's default dropdown markup based on your choices.
-5. WooCommerce still handles variation selection, pricing, stock status, and gallery images.
-
-### Typical use cases
-
-* Show sizes (S, M, L, XL) as radio buttons instead of a dropdown.
-* Keep Color as a dropdown, but improve the first "Choose…" label.
-* Use dropdowns for long lists (e.g. 20+ options) and radio buttons for short, important attributes.
-* Make variant selection more obvious and reduce user confusion.
-
-### Who is it for?
-
-* **Store owners** who want a clearer, more direct variant selection UI.
-* **Marketers** who want to reduce friction at the "choose options" step in the funnel.
-* **Developers and agencies** who prefer a configurable, hook-based solution instead of hand-coded templates on every project.
+* **Apparel & Footwear Stores:** Display common sizes (**S, M, L, XL**) as instant-click radio buttons to speed up mobile checkout.
+* **Catalogs with Many Options:** Keep attributes with 20+ choices in a clean, clearly labeled dropdown while keeping primary options visible as radio buttons.
+* **Agencies & Freelancers:** Deliver a fast, hook-based variation UI without maintaining custom child-theme template overrides.
 
 == Installation ==
 
-1. Make sure WooCommerce is installed and active.
-2. Upload the plugin folder to `/wp-content/plugins/product-variant-dropdown-radio-button/`
-   or install it via **Plugins → Add New**.
-3. Activate **Product Variant Dropdown or Radio Button for WooCommerce** through the **Plugins** menu in WordPress.
-4. Edit any variable product and set the Display Mode for each attribute under the **Attributes** tab.
+1. Ensure **WooCommerce** is installed and activated on your WordPress site.
+2. Go to **Plugins → Add New** in your WordPress dashboard, search for **Product Variant Dropdown or Radio Button for WooCommerce**, and click **Install Now** (or upload the plugin folder to `/wp-content/plugins/product-variant-dropdown-radio-button/`).
+3. Click **Activate**.
+4. Edit any variable product, open the **Attributes** or **Variations** settings, and choose your preferred Display Mode (**Radio Buttons** or **Drop-down**).
 
 == Frequently Asked Questions ==
 
+= Is this a lightweight alternative to heavy variation swatches plugins? =
+
+Yes. If you want shoppers to see product options upfront without bloated scripts or complex swatch builders, this plugin gives you clean, native radio buttons and enhanced dropdowns with minimal overhead.
+
 = Does this change how my products or variations are stored? =
 
-No. The plugin uses existing WooCommerce attributes, terms, and variable products. It only changes the way options are displayed, not how they are stored.
-
-= Will it work with my theme? =
-
-It's designed for WooCommerce-compatible themes that support variable products. Most themes will work out of the box; you may add a small amount of CSS for perfect styling.
+No. The plugin uses existing WooCommerce attributes, terms, and variable products. Your data remains 100% native to WooCommerce even if you deactivate the plugin later.
 
 = Can I mix dropdowns and radio buttons on the same product? =
 
-Yes. You can configure some attributes to use dropdowns and others to use radio buttons, even on the same product.
+Yes. You can display one attribute (like Size) as radio buttons and another attribute (like Color or Style) as a dropdown on the exact same product page.
 
-= Does it affect stock management or pricing? =
+= Will it work with my theme and page builder? =
 
-No. WooCommerce still handles variation selection, stock, and pricing. The plugin only changes the UI for selecting attributes.
+Yes. Because it relies on standard WooCommerce hooks and clean HTML markup, it works out of the box with almost all WooCommerce themes and builders. You can also style the radio buttons easily with custom CSS.
 
-= Is it compatible with caching and optimization plugins? =
+= Does it affect stock management, pricing, or variation images? =
 
-Yes. It follows standard WooCommerce and WordPress practices. As always, test configuration changes on a staging environment before deploying to production.
+No. WooCommerce continues to handle variation pricing, out-of-stock status, and gallery image switching normally.
+
+= Is it compatible with caching and performance plugins? =
+
+Yes. It follows WordPress and WooCommerce coding standards and works smoothly with caching and optimization plugins.
 
 == Screenshots ==
 
-1. Product page showing attributes as radio buttons instead of dropdowns.
-2. Plugin settings screen for choosing drop-down or radio per attribute.
-3. Per-product override options in the product edit screen.
+1. Clean one-click radio buttons replacing default WooCommerce variation dropdowns on the product page.
+2. Global attribute settings screen to choose between radio buttons and enhanced dropdowns.
+3. Per-product override controls inside the WooCommerce product edit screen.
 
 == Changelog ==
+
+= 1.0.1 =
+* Improved plugin documentation and setup clarity.
+* Verified compatibility with WordPress 7.1 and latest WooCommerce releases.
 
 = 1.0.0 =
 * Initial release.

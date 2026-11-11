@@ -16,7 +16,7 @@
  * Plugin Name:       Product Variant Dropdown or Radio Button for WooCommerce
  * Plugin URI:        https://github.com/realdealride/Woo-Variant-Drop-down-or-Radio-Button-Select
  * Description:       Switch WooCommerce variation dropdowns to clean radio buttons or improved dropdowns for clearer, faster product option selection.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Sentiplug
  * Author URI:        https://sentiplug.com
  * License:           GPL-2.0+
@@ -36,7 +36,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'SENTIPLUG_PVDRB_VERSION', '1.0.0' );
+define( 'SENTIPLUG_PVDRB_VERSION', '1.0.1' );
 
 /**
  * The code that runs during plugin activation.
